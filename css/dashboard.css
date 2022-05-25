@@ -1,17 +1,13 @@
 /*
     ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
 */
+@import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 .wrapper {
 display: flex;
 width: 100%;
 align-items: stretch;
 }
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
-
 #sidebar {
     min-width: 250px;
     max-width: 250px;
@@ -105,13 +101,7 @@ ul ul a {
     padding-left: 30px !important;
     background: #3991DB;
 }
-.icons{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 10px;
-    background-color: #3991DB;
-}
+
 .circle{
     width: 90px;
     height: 90px;
@@ -131,4 +121,44 @@ ul ul a {
 	height: 30px;
 	border-radius: 50%;
 	background-color: #5CB85C;
+}
+
+.navbar{
+    background-color: rgb(49, 160, 86);
+}
+
+.log span{
+    color: #ffff;
+    font-size: 20px;
+    font-family: 'Koulen', cursive;
+}
+
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    float: right;
+}
+
+.icons img{
+    height: 30px;
+    width: 30px;
+}
+
+#sms{
+    width:30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #5CB85C;
+    text-align: center;
+    color: #fff;
+
+}
+
+.icons-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
 }
