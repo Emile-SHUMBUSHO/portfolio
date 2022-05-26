@@ -29,14 +29,14 @@
                             <div class="row mx-5 my-5">
                                 <div class="col-md-12">
                                     <label for="email">Email</label>
-                                    <input type="text" class="no-outline ipt-field" name="email" placeholder="">
+                                    <input type="email" id="email" class="no-outline ipt-field" name="email" placeholder="">
                                 </div>
                                 <div class="col-md-12">
                                     <label for="password">Password</label>
-                                    <input type="password" class="no-outline ipt-field" name="password" placeholder="">
+                                    <input type="password" id="password" class="no-outline ipt-field" name="password" placeholder="">
                                 </div>
                                 <div class="col-md-12 my-4">
-                                    <button class="sbt-btn cursor login" style="color: #FFFF;">login</button>
+                                    <button id="login" class="sbt-btn cursor login" style="color: #FFFF;">login</button>
                                 </div>
                             </div>
                         </form>
@@ -45,5 +45,10 @@
             </div>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="./firebaseConfig.js"></script>
+    <script src="./authentication.js"></script>
 </body>
 </html>
