@@ -86,9 +86,10 @@ a, a:hover, a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #fff;
 }
 #sidebar ul li a:hover {
-    color: #3991DB;
+    color: rgb(20, 3, 3);
     background: #fff;
 }
 
@@ -101,6 +102,8 @@ ul ul a {
     padding-left: 30px !important;
     background: #3991DB;
 }
+
+
 
 .circle{
     width: 90px;
