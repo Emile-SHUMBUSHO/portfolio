@@ -14,6 +14,8 @@
       src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
       data-auto-a11y="true"
     ></script>
+    <!-- Axios connection -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -34,7 +36,6 @@
                         <li><a href="#contact" class="login-btn">contact</a></li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
@@ -260,19 +261,21 @@
                             <h4 class="mb-4">Any Question ?</h4>
                         </div>
                         <div class="col-md-12">
-                            <div id="one-form">
-                                <a name="contact"></a>
+                            <div class="alert alert-success" role="alert">
+                                A simple success alert—check it out!
+                              </div>
+                            <form id="one-form">
                                 <label>Email</label>
-                                <input class="input-field" type="text" name="email" id="Qemail">
+                                <input class="input-field" type="text" name="email" id="Memail">
     
                                 <label>Name</label>
-                                <input class="input-field" type="text" name="name" id="Qnames">
+                                <input class="input-field" type="text" name="name" id="Mnames">
                 
                                 <label>Message</label>
-                                <textarea class="input-field" name="message" id="Qmessages"></textarea>
+                                <textarea class="input-field" name="message" id="Mmessages"></textarea>
                 
                                 <button id="Qsubmit-btn">Send</button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -295,5 +298,40 @@
         </div>
     </section>
     <script src="./scripts.js"></script>
+    <script>
+        // Message Element
+        const email = document.getElementById("Memail")
+        const names = document.getElementById("Mnames")
+        const message = document.getElementById("Mmessages")
+        // Get form
+        const form = document.getElementById("one-form")
+        form.addEventListener("submit", async(e)=>{
+            e.preventDefault();
+            try{
+                const data = {
+                    Email : email.value,
+                    Names : names.value,
+                    Message : message.value
+                }
+                console.log(data)
+                const save = await axios.post(
+                    "https://tech-up-skill-portfolio-default-rtdb.europe-west1.firebasedatabase.app/message.json",
+                    {
+                        Email : email.value,
+                        Names : names.value,
+                        Message : message.value
+                    }
+                );
+                if((await save.status === 201)){
+                    return window.alert("message sent successfully")
+                }else{
+                    return window.alert(await save);
+                }
+            }
+            catch(err){
+                console.log(err)
+            }
+        })
+    </script>
 </body>
 </html>

@@ -11,4 +11,4 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const DB = firebase.firestore();
-DB.settings({timestampsInSnapshots: true});
+DB.settings({ timestampsInSnapshot: true, merge: true });
