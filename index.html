@@ -14,8 +14,6 @@
       src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
       data-auto-a11y="true"
     ></script>
-    <!-- Axios connection -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
     <title>Portfolio</title>
 </head>
 <body>
@@ -86,12 +84,14 @@
         <div class="main-container">
             <h3 class="text-center mb-4 mt-4">Top Skills</h3>
             <div class="skills-section">
-                <div class="box-img">
-                    <img class="thumbnail" src="./images/js3.png" alt="">
-                    <div class="card-preview">
-                        <h6 class="title">JAVASCRIPT</h6>
+                <a href="./viewSkills.html" style="text-decoration: none;">
+                    <div class="box-img">
+                        <img class="thumbnail" src="./images/js3.png" alt="">
+                        <div class="card-preview">
+                            <h6 class="title">JAVASCRIPT</h6>
+                        </div>
                     </div>
-                </div>
+                </a>
                 <div class="box-img">
                     <img class="thumbnail" src="./images/css2.png" alt="">
                     <div class="card-preview">
@@ -106,7 +106,7 @@
                 </div>
             </div>
             <div class="col-md-12 mb-4 text-center">
-                <a href="#" class="btn btn-primary py-3 px-3">view more</a>
+                <a href="./moreSkills.html" class="btn btn-primary py-3 px-3">view more</a>
             </div>
         </div>
     </section>
@@ -128,7 +128,7 @@
                 <div class="experiences">
                    <h4>Experience</h4>
                    <p>
-                       Fullstack developer with primary focus on JavaScript + nodejs: <a target="_blank" href="Emile CV.pdf"> Download Resume</a>
+                       Fullstack developer with primary focus on JavaScript + nodejs: <a target="_blank" href="./cv.pdf"> Download Resume</a>
                    </p>
                    <div class="skills">
                        <ul>
@@ -159,67 +159,11 @@
     <section class="ftco-section ftco-project s-one" id="projects-section">
         <div class="container main-container">
             <h3 class="mb-5 mt-4">Recent Projects</h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-4.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                    </div>
-                    <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-5.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                    </div>
-                <div class="col-md-8">
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-1.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-
-                    <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-6.jpg);">
-                        <div class="overlay"></div>
-                        <div class="text text-center p-4">
-                            <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                            <span>Web Design</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-2.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="project img ftco-animate d-flex justify-content-center align-items-center" style="background-image: url(images/project-3.jpg);">
-                                <div class="overlay"></div>
-                                <div class="text text-center p-4">
-                                    <h3><a href="#">Branding &amp; Illustration Design</a></h3>
-                                    <span>Web Design</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row project-section">
+                <!-- PROJECT CARDS DISPLAYED HERE!!! -->
             </div>
             <div class="col-md-12 mb-4 text-center">
-                <a href="#" class="btn btn-primary py-3 px-3">view more</a>
+                <a href="moreProject.html" class="btn btn-primary py-3 px-3">view more</a>
             </div>
         </div>
     </section>
@@ -269,7 +213,7 @@
                                 <input class="input-field" type="text" name="email" id="Memail">
     
                                 <label>Name</label>
-                                <input class="input-field" type="text" name="name" id="Mnames">
+                                <input class="input-field" type="text" name="names" id="Mnames">
                 
                                 <label>Message</label>
                                 <textarea class="input-field" name="message" id="Mmessages"></textarea>
@@ -298,40 +242,16 @@
         </div>
     </section>
     <script src="./scripts.js"></script>
-    <script>
-        // Message Element
-        const email = document.getElementById("Memail")
-        const names = document.getElementById("Mnames")
-        const message = document.getElementById("Mmessages")
-        // Get form
-        const form = document.getElementById("one-form")
-        form.addEventListener("submit", async(e)=>{
-            e.preventDefault();
-            try{
-                const data = {
-                    Email : email.value,
-                    Names : names.value,
-                    Message : message.value
-                }
-                console.log(data)
-                const save = await axios.post(
-                    "https://tech-up-skill-portfolio-default-rtdb.europe-west1.firebasedatabase.app/message.json",
-                    {
-                        Email : email.value,
-                        Names : names.value,
-                        Message : message.value
-                    }
-                );
-                if((await save.status === 201)){
-                    return window.alert("message sent successfully")
-                }else{
-                    return window.alert(await save);
-                }
-            }
-            catch(err){
-                console.log(err)
-            }
-        })
-    </script>
+    <!-- UUID -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+    <script src="./js/firebaseConfig.js"></script>
+    <script src="./front-End-Js/project.js"></script>
+    <script src="./front-End-Js/message.js"></script>
 </body>
 </html>

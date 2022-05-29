@@ -39,7 +39,7 @@
             <ul class="list-unstyled components">
                 <p>User Dashboard</p>
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Update</a>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
                             <a href="./profile.html">Profile</a>
@@ -49,17 +49,6 @@
                         </li>
                         <li>
                             <a href="./skills.html">Skills</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li>
-                            <a href="#">Skills</a>
-                        </li>
-                        <li>
-                            <a href="#">Project</a>
                         </li>
                     </ul>
                 </li>
@@ -366,9 +355,22 @@
     <div class="popup" id="popup">
         <div class="overlay"></div>
         <div class="popup-content">
-            <div id="comments">
-                <h1>Hello</h1>
-            </div>
+            <!-- <div class="row" id="message" style="background-color: #3991DB;border-radius: 10px; color: #fff;">
+                <div class="col-md-12">
+                    <h5>Names: Emile Shumbusho</h5>
+                </div>
+                <div class="col-md-12">
+                    <h5>Email: shumbushoemile@gmail.com</h5>
+                </div>
+                <div class="col-md-12">
+                    <h5>Message:</h5>
+                    <p style="color: #fff;">
+                        Well done Emile!! I'm very interested in some of your project how can I reach you brother!!!!
+                    </p>
+                    <hr>
+                    <button class="btn btn-danger" style="float: right;">Delete</button>
+                </div>
+            </div> -->
             <div class="controls">
                 <button class="close" style="display: none;"><img src="/images/times-circle-solid.svg" alt="close" id="closeBlog"></button>
             </div>
@@ -391,9 +393,9 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-        <script src="./firebaseConfig.js"></script>
-        <script src="./sign-out.js"></script>
-        <script src="./check-status.js"></script>
+        <script src="./js/firebaseConfig.js"></script>
+        <script src="./js/sign-out.js"></script>
+        <script src="./js/check-status.js"></script>
 
         <script>
             function createPopup(id){
@@ -413,6 +415,6 @@
             let popup = createPopup("#popup");
             document.querySelector("#sms").addEventListener("click",popup)
         </script>
-        <script src="./app/app.js" defer type="module"></script>
+        <script src="./js/message.js"></script>
 </body>
 </html>

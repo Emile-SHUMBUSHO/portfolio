@@ -12,7 +12,73 @@
     <!-- external css -->
     <link rel="stylesheet" href="/dashboard.html">
     <style>
-       
+        *{
+        margin: 0;
+        padding: 0;
+      }
+      /* Pop Up For User add project */
+      .popup {
+          position: fixed;
+          top: -100vh;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+      }
+      .popup .overlay {
+          position: absolute;
+          top: -20px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          background:rgba(0,0,0,0.5);
+          opacity: 0;
+          transition: opacity 100ms ease-in-out 200ms;
+      }
+
+      .popup .popup-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%) scale(1.15);
+          width: 50%;
+          height: auto;
+          background: #fff;
+          border-radius: 20px;
+          padding: 25px;
+          box-shadow: 0px 2px 2px 5px rgba(0,0,0,0,0.5);
+          transition: all 300ms ease-in-out;
+          opacity: 0;
+      }
+
+      .popup .popup-content #createProject {
+          margin: 10px 0px;
+          color: #111;
+          padding: 10px;
+      }
+
+      
+
+      .popup .popup-content .controls {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px 0px 0px;
+      }
+
+
+      .popup.active {
+          top: 0px;
+          transition: top 0ms ease-in-out 0ms;
+      }
+
+      .popup.active .overlay {
+          opacity: 1;
+          transition: all 300ms ease-in-out;
+      }
+
+      .popup.active .popup-content {
+          transform: translate(-50%,-50%) scale(1);
+          opacity: 1;
+      }
     </style>
 </head>
 <body>
@@ -76,14 +142,22 @@
             <h1>Update About Info.</h1>
             <div class="row mt-5 shadow p-3 mb-r bg-body rounded">
                 <div class="col-md-12">
-                    <h2>Recent Post</h2>
-                    <div class="rw">
-                        <div class="col-md-12 shadow-sm mb-3 bg-body rounded p-4 m-4">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2>Recent Post</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <div style="float: right;" id="add"><img src="./images/add.svg" alt="" width="30px" height="30px"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 shadow-sm mb-3 bg-body rounded">
                             <table class="table">
                                 <thead>
                                     <tr>
                                         <th><h2>Languages</h2></th>
                                         <th><h2>Frameworks</h2></th>
+                                        <th><h2>Cloude Service</h2></th>
                                         <th><h2>Status</h2></th>
                                     </tr>
                                 </thead>
@@ -91,25 +165,30 @@
                                     <tr>
                                         <td><p>Paython</p></td>
                                         <td><p>React Native</p></td>
+                                        <td><p>Azure</p></td>
                                         <td ><button type="submit" class="btn btn-danger">Delete</button></td>
                                         <td ><button type="submit" class="btn btn-success">Update</button></td>
                                     </tr>
                                     <tr>
                                         <td><p>JavaScript</p></td>
                                         <td><p>Django</p></td>
+                                        <td><p>Heroku</p></td>
                                         <td ><button type="submit" class="btn btn-danger">Delete</button></td>
                                         <td ><button type="submit" class="btn btn-success">Update</button></td>
                                     </tr>
                                     <tr>
                                         <td><p>Java</p></td>
                                         <td><p>Bootstrap</p></td>
+                                        <td><p>Fire Base</p></td>
                                         <td ><button type="submit" class="btn btn-danger">Delete</button></td>
                                         <td ><button type="submit" class="btn btn-success">Update</button></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                        <div class="col-md-12 shadow-sm mb-3 bg-body rounded p-4 m-4">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 shadow-sm mb-3 bg-body rounded">
                             <h2>Body</h2>
                             
                             <p>
@@ -130,5 +209,56 @@
             </div>
         </div>
     </div>
+    <!-- popup for add project -->
+    <div class="popup" id="popup">
+        <div class="overlay"></div>
+        <div class="popup-content">
+            <div id="createProject">
+                  <form>
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Language</label>
+                        <div class="col-sm-10">
+                            <input type="name" class="form-control" id="inputTitle">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">FrameWork</label>
+                      <div class="col-sm-10">
+                        <input type="name" class="form-control" id="inputDescrption">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Cloud Service</label>
+                        <div class="col-sm-10">
+                          <input type="name" class="form-control" id="inputDescrption">
+                        </div>
+                      </div>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="controls">
+                <button class="close" style="display: none;"></button>
+            </div>
+        </div>
+      </div>
+        <script>
+          function createPopup(id){
+                let popupNode = document.querySelector(id);
+                let overlay = popupNode.querySelector(".overlay");
+                let closeBtn = popupNode.querySelector(".close");
+                function openPopup(){
+                    popupNode.classList.add("active");
+                }
+                function closePopup(){
+                    popupNode.classList.remove("active");
+                }
+                overlay.addEventListener("click", closePopup);
+                closeBtn.addEventListener("click",closePopup);
+                return openPopup;
+                }
+                let popup = createPopup("#popup");
+                document.querySelector("#add").addEventListener("click",popup)
+        </script>
+        <script src="../js/check-status.js"></script>
 </body>
 </html>

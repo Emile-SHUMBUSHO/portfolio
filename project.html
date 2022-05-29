@@ -11,69 +11,173 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- external css -->
     <link rel="stylesheet" href="/dashboard.html">
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      /* Pop Up For User add project */
+      .popup {
+          position: fixed;
+          top: -100vh;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+      }
+      .popup .overlay {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          background:rgba(0,0,0,0.5);
+          opacity: 0;
+          transition: opacity 100ms ease-in-out 200ms;
+      }
+
+      .popup .popup-content {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%) scale(1.15);
+          width: 50%;
+          height: auto;
+          background: #fff;
+          border-radius: 20px;
+          padding: 25px;
+          box-shadow: 0px 2px 2px 5px rgba(0,0,0,0,0.5);
+          transition: all 300ms ease-in-out;
+          opacity: 0;
+      }
+
+      .popup .popup-content #createProject {
+          margin: 10px 0px;
+          color: #111;
+          padding: 10px;
+      }
+
+      
+
+      .popup .popup-content .controls {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px 0px 0px;
+      }
+
+
+      .popup.active {
+          top: 0px;
+          transition: top 0ms ease-in-out 0ms;
+      }
+
+      .popup.active .overlay {
+          opacity: 1;
+          transition: all 300ms ease-in-out;
+      }
+
+      .popup.active .popup-content {
+          transform: translate(-50%,-50%) scale(1);
+          opacity: 1;
+      }
+      .card{
+        width: 18rem;
+      }
+
+      .col-md-4 img{
+        height: 20rem;
+      }
+    </style>
 </head>
 <body>
-    <div class="container-fluid">
+      <div class="container-fluid">
         <div class="container-fluid mt-4">
-            <a href="./dashboard.html">
+          <div class="row">
+            <div class="col-md-6">
+              <a href="./dashboard.html">
                 <img src="./images/back.svg" width="50px" height="50px" alt="">
-            </a>
+              </a>
+            </div>
+            <div class="col-md-6">
+              <div id="add" style="float:right;">
+                <img src="./images/add.svg" width="50px" height="50px" alt="" >
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/diagram-project-solid (1).svg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Metaverse</h5>
-                          <p class="card-text">In futurism and science fiction, the metaverse is a hypothetical iteration of the Internet as a single, universal and immersive virtual world that is facilitated by the use of virtual reality and augmented reality headsets. In colloquial use, a metaverse is a network of 3D virtual worlds focused on social connection.</p>
-                          <div class="row">
-                              <div class="col-md-6">
-                                <a href="#" class="btn btn-danger">Delete</a>
-                              </div>
-                              <div class="col-md-6">
-                                <a href="#" class="btn btn-success">Update</a>
-                              </div>
-                          </div>
+        <!-- first-container -->
+            <div class="container mt-4">
+              <div class="project row">
+                
+              </div>
+            </div>
+      </div>
+
+      <!-- popup for add project -->
+      <div class="popup" id="popup">
+        <div class="overlay"></div>
+        <div class="popup-content">
+            <div id="createProject">
+                  <form class="add_project">
+                    <div class="row mb-3">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
+                        <div class="col-sm-10">
+                            <input type="name" name="title" class="form-control" id="inputTitle">
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/image_2.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Web 3</h5>
-                          <p class="card-text">Web3 is an idea for a new iteration of the World Wide Web based on blockchain technology, which incorporates concepts such as decentralization and token-based economics.</p>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <a href="#" class="btn btn-danger">Delete</a>
-                            </div>
-                            <div class="col-md-6">
-                              <a href="#" class="btn btn-success">Update</a>
-                            </div>
-                        </div>
-                        </div>
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
+                      <div class="col-sm-10">
+                        <textarea name="description" class="form-control" id="inputDescrption" rows="5"></textarea>
+                      </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="./images/image_1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                          <h5 class="card-title">Internet of things</h5>
-                          <p class="card-text">The Internet of things describes physical objects with sensors, processing ability, software, and other technologies that connect and exchange data with other devices and systems over the Internet or other communications networks.</p>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <a href="#" class="btn btn-danger">Delete</a>
-                            </div>
-                            <div class="col-md-6">
-                              <a href="#" class="btn btn-success">Update</a>
-                            </div>
-                        </div>
-                        </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
+                      <div class="col-sm-10">
+                        <input type="file" name="img" class="form-control" id="inputPhoto">
+                      </div>
                     </div>
-                </div>
+                    <button type="submit" name="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="controls">
+                <button class="close" style="display: none;"></button>
             </div>
         </div>
-    </div>
+      </div>
+      
+          <!-- UUID -->
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
+          <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+          <script src="./js/firebaseConfig.js"></script>
+          <script src="./js/project-functions.js"></script>
+          <script src="./js/renderProject.js"></script>
+          <script src="./js/edit-pro-popup.js"></script>
+          <script>
+            add_project();
+          </script>
+          <script>
+            function createPopup(id){
+                  let popupNode = document.querySelector(id);
+                  let overlay = popupNode.querySelector(".overlay");
+                  let closeBtn = popupNode.querySelector(".close");
+                  function openPopup(){
+                      popupNode.classList.add("active");
+                  }
+                  function closePopup(){
+                      popupNode.classList.remove("active");
+                  }
+                  overlay.addEventListener("click", closePopup);
+                  closeBtn.addEventListener("click",closePopup);
+                  return openPopup;
+                  }
+                  let popup = createPopup("#popup");
+                  document.querySelector("#add").addEventListener("click",popup)
+          </script>
+          <script src="../js/check-status.js"></script>
 </body>
 </html>
