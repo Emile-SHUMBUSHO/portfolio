@@ -4,7 +4,7 @@ document.querySelector('.one-form').addEventListener('submit', function (e) {
     const password = e.target.elements.password.value
     const auth = firebase.auth();
     auth.signInWithEmailAndPassword(email, password).then(function (params) {
-        location.assign(`dashboard.html`)
+        location.assign(`./pages/dashboard.html`)
     }).catch(function(error) {
        console.log(`Oops something went wrong ${error}`);
     });

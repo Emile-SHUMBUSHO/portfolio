@@ -10,8 +10,6 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <!-- external css -->
-    <link rel="stylesheet" href="/dashboard.html">
-
     <style>
         *{
           margin: 0;
@@ -90,7 +88,7 @@
         <div class="container-fluid mt-4">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="./dashboard.html">
+                    <a href="./pages/dashboard.html">
                         <img src="./images/back.svg" width="50px" height="50px" alt="">
                     </a>
                 </div>
@@ -137,23 +135,23 @@
         <div class="overlay"></div>
         <div class="popup-content">
             <div id="skills">
-                <form>
+                <form class="add-skills">
                     <div class="row mb-3">
                         <label for="inputEmail3" class="col-sm-2 col-form-label">Title</label>
                         <div class="col-sm-10">
-                            <input type="name" class="form-control" id="inputTitle">
+                            <input type="text" name="title" class="form-control title"  id="inputTitle">
                         </div>
                     </div>
                     <div class="row mb-3">
                       <label for="inputEmail3" class="col-sm-2 col-form-label">Description</label>
                       <div class="col-sm-10">
-                        <input type="name" class="form-control" id="inputDescrption">
+                        <input type="text" name="description" class="form-control description" id="inputDescrption">
                       </div>
                     </div>
                     <div class="row mb-3">
                       <label for="inputPassword3" class="col-sm-2 col-form-label">Photo</label>
                       <div class="col-sm-10">
-                        <input type="file" class="form-control" id="inputPhoto">
+                        <input type="file" name="image" class="form-control image" id="inputPhoto">
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Add</button>
@@ -183,5 +181,15 @@
               let popup = createPopup("#popup");
               document.querySelector("#add").addEventListener("click",popup)
       </script>
+      <!-- UUID -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script> 
+      <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+      <script src="./js/firebaseConfig.js"></script>
+      <script src="./js/skills_function.js"></script>
 </body>
 </html>
